@@ -1,4 +1,11 @@
 <h1><%= @artist.name %></h1>
+
+
+<%= link_to "New Song", new_artist_song_path(@artist) %>
+
+<p>by <%= link_to @song.artist.name, artist_path(@song.artist) if @song.artist %> (<%= link_to "Edit song", edit_artist_song_path(@song.artist, @song) if @song.artist %>)</p>
+
+
 <ul>
   <% @artist.songs.each do |song| %>
     <li><%= link_to song.title, artist_song_path(@artist, song) %></li>
